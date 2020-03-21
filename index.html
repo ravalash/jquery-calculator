@@ -89,7 +89,8 @@ $(".number").on("click", function(){
   if ($("#result").text() !=""){
     return;
   }
-  if (firstNumber != "") {
+  console.log("first number " + firstNumber);
+  if (firstNumber !== "") {
     entryLine = "#second-number"
   }
   console.log(this);
@@ -99,7 +100,7 @@ $(".number").on("click", function(){
 })
 
 $(".operator").on("click", function(){
-  if (numberEntry=="" && firstNumber==""){
+  if ((numberEntry=="" && firstNumber=="") || (firstNumber !=="" && numberEntry !== "")) {
     return;
   }
   if (firstNumber==""){
@@ -130,7 +131,7 @@ $(".operator").on("click", function(){
 
 $(".equal").on("click", function(){
  console.log("equals clicked");
-  if (firstNumber == "" || operatorEntry == "" || numberEntry == "") {
+  if (firstNumber === "" || operatorEntry == "" || numberEntry == "") {
     return;
   }
   secondNumber = parseInt(numberEntry);
