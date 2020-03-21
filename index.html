@@ -86,6 +86,9 @@ $(document).ready(function() {
 
 // Your code here...
 $(".number").on("click", function(){
+  if ($("#result").text() !=""){
+    return;
+  }
   if (firstNumber != "") {
     entryLine = "#second-number"
   }
@@ -100,7 +103,7 @@ $(".operator").on("click", function(){
     return;
   }
   if (firstNumber==""){
-  firstNumber = numberEntry;
+  firstNumber = parseInt(numberEntry);
   numberEntry = "";
   }
   operatorEntry = $(this).attr("value");
@@ -130,7 +133,7 @@ $(".equal").on("click", function(){
   if (firstNumber == "" || operatorEntry == "" || numberEntry == "") {
     return;
   }
-  secondNumber = numberEntry;
+  secondNumber = parseInt(numberEntry);
   if (operatorEntry == "plus"){
     result=firstNumber + secondNumber;
   }
